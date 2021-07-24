@@ -3,7 +3,7 @@ FROM php:7.4-apache
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        zip unzip mariadb-client redis-tools \
+        zip unzip mariadb-client redis-tools git \
         libgmp-dev libzip-dev libpq-dev libbz2-dev libicu-dev libfreetype6-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -21,7 +21,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ENV COMPSER_MEMORY_LIMIT -1
 
 RUN cd /var/www && \
-    composer create-project simplyunnamed/esitest --no-scripts --stability dev --no-ansi --no-progress && \
+    git clone https://github.com/SimplyUnnamed/esitest /var/www/esitest/ && \
+    cd /var/www/esitest && \
+    composer install && \
     composer clear-cache --no-ansi && \
     chown -R www-data:www-data /var/www/esitest && \
     cd /var/www/esitest && \
