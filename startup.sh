@@ -24,6 +24,7 @@ echo "startup.sh for wirepath has started"
 
 function web_service() {
   echo "starting web service"
+  echo "maybe now build"
 
   php artisan migrate
   php artisan eve:update:sde -n
