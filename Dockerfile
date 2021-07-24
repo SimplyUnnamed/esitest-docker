@@ -1,5 +1,9 @@
 FROM php:7.4-apache
 
+LABEL maintainer="Lars Gullstrup" \
+	  name="esitest-docker" \
+	  version="1.1"
+
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -21,9 +25,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ENV COMPSER_MEMORY_LIMIT -1
 
 RUN cd /var/www && \
-    git clone https://github.com/SimplyUnnamed/esitest /var/www/esitest/ && \
-    cd /var/www/esitest && \
-    composer install && \
+	composer create-project simplyunnamed/esitest && \
     composer clear-cache --no-ansi && \
     chown -R www-data:www-data /var/www/esitest && \
     cd /var/www/esitest && \
