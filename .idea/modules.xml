@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../docker-storage/.idea/docker-storage.iml" filepath="$PROJECT_DIR$/../docker-storage/.idea/docker-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../esi-compose/.idea/esi-compose.iml" filepath="$PROJECT_DIR$/../esi-compose/.idea/esi-compose.iml" />
+      <module fileurl="file:///var/www/esitest/.idea/esitest.iml" filepath="/var/www/esitest/.idea/esitest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/esitest-docker.iml" filepath="$PROJECT_DIR$/.idea/esitest-docker.iml" />
+    </modules>
+  </component>
+</project>
