@@ -2,7 +2,7 @@ FROM php:7.4-apache
 
 LABEL maintainer="Lars Gullstrup" \
 	  name="esitest-docker" \
-	  version="1.1.3"
+	  version="1.1.5"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
@@ -25,7 +25,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ENV COMPSER_MEMORY_LIMIT -1
 
 RUN cd /var/www && \
-	composer create-project simplyunnamed/esitest=1.0.1 --no-scripts --stability dev --no-ansi --no-progress && \
+	composer create-project simplyunnamed/esitest=1.0.2 --no-scripts --stability dev --no-ansi --no-progress && \
     composer clear-cache --no-ansi && \
     chown -R www-data:www-data /var/www/esitest && \
     cd /var/www/esitest && \
