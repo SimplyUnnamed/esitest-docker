@@ -26,7 +26,7 @@ function web_service() {
   echo "starting web service"
 
   php artisan migrate
-  php artisan eve:update:sde
+  php artisan eve:update:sde -n
   composer dump-autoload
 
   chown -R www-data:www-data /var/www/esitest
