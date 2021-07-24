@@ -37,6 +37,7 @@ EXPOSE 80
 WORKDIR /var/www/esitest
 
 COPY startup.sh /startup.sh
+COPY version /var/www/esitest/storage/version
 RUN chmod +x /startup.sh
 
 
