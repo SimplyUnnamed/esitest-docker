@@ -2,7 +2,7 @@ FROM php:7.4-apache
 
 LABEL maintainer="Lars Gullstrup" \
 	  name="esitest-docker" \
-	  version="1.2"
+	  version="1.1.2"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
@@ -30,7 +30,6 @@ RUN cd /var/www && \
     chown -R www-data:www-data /var/www/esitest && \
     cd /var/www/esitest && \
     php -r "file_exists('.env') || copy('.env.example', '.env');" && \
-    php artisan vendor:publish --force --all && \
     php artisan key:generate
 
 RUN rmdir /var/www/html && \
