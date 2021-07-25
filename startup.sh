@@ -50,7 +50,7 @@ function start_cron() {
     while :
     do
       php /var/www/esitest/artisan schedule:run &
-      php /var/www/esitest/artisan short-schedule:run --lifetime=60
+      php /var/www/esitest/artisan short-schedule:run --lifetime=59
     done
 }
 
