@@ -2,7 +2,7 @@ FROM php:7.4-apache
 
 LABEL maintainer="Lars Gullstrup" \
 	  name="esitest-docker" \
-	  version="1.1.2"
+	  version="1.1.3"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
@@ -31,6 +31,11 @@ RUN cd /var/www && \
     cd /var/www/esitest && \
     php -r "file_exists('.env') || copy('.env.example', '.env');" && \
     php artisan key:generate
+	
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+RUN wget http://curl.haxx.se/ca/cacert.pem --directory-prefix=/usr/local/etc && \
+	sed -i 's/^.*curl.cainfo.*$/curl.cainfo =\/var\/www\/cacert.pem/' /usr/local/etc/php/php.ini 
 
 RUN rmdir /var/www/html && \
     ln -s /var/www/esitest/public /var/www/html
