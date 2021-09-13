@@ -35,7 +35,7 @@ RUN cd /var/www && \
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 RUN wget http://curl.haxx.se/ca/cacert.pem --directory-prefix=/usr/local/etc && \
-	wget http://www.symantec.com/content/en/us/enterprise/verisign/roots/Class-3-Public-Primary-Certification-Authority.pem --directory-prefix=/usr/local/etc/ && \
+	wget https://www.websecurity.digicert.com/content/dam/websitesecurity/digitalassets/desktop/pdfs/roots/Class-3-Public-Primary-Certification-Authority.pem --directory-prefix=/usr/local/etc/ && \
     cat /usr/local/etc/Class-3-Public-Primary-Certification-Authority.pem >> /usr/local/etc/php/cacert.pem && \
     rm /usr/local/etc/Class-3-Public-Primary-Certification-Authority.pem && \
 	sed -i 's/^.*curl.cainfo.*$/curl.cainfo =\/usr\/local\/etc\/cacert.pem/' /usr/local/etc/php/php.ini
