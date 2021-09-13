@@ -7,7 +7,7 @@ LABEL maintainer="Lars Gullstrup" \
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        zip unzip mariadb-client redis-tools git \
+        wget zip unzip mariadb-client redis-tools git \
         libgmp-dev libzip-dev libpq-dev libbz2-dev libicu-dev libfreetype6-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
