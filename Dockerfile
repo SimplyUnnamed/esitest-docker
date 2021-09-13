@@ -35,7 +35,7 @@ RUN cd /var/www && \
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 RUN wget http://curl.haxx.se/ca/cacert.pem --directory-prefix=/usr/local/etc && \
-	sed -i 's/^.*curl.cainfo.*$/curl.cainfo =\/usr\/local\/etc\/php\/cacert.pem/' /usr/local/etc/php/php.ini
+	sed -i 's/^.*curl.cainfo.*$/curl.cainfo =\/usr\/local\/etc\/cacert.pem/' /usr/local/etc/php/php.ini
 
 RUN rmdir /var/www/html && \
     ln -s /var/www/esitest/public /var/www/html
