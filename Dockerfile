@@ -25,7 +25,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ENV COMPSER_MEMORY_LIMIT -1
 
 RUN cd /var/www && \
-	composer create-project simplyunnamed/esitest=1.1 --no-scripts --stability dev --no-ansi --no-progress && \
+	composer create-project simplyunnamed/esitest=^1.1 --no-scripts --stability dev --no-ansi --no-progress && \
     composer clear-cache --no-ansi && \
     chown -R www-data:www-data /var/www/esitest && \
     cd /var/www/esitest && \
